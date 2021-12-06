@@ -1,0 +1,20 @@
+@import 'motion-ui';
+@include motion-ui-transitions;
+@include motion-ui-animations;
+
+
+@include mui-series {
+    .foto1 {
+    @include mui-queue(1s, 0s, fade);
+    }
+  
+    // A 2s pause will happen after this animation ends
+    .foto2 {
+      @include mui-queue(2s, 0s, fade, spin($direction: ccw), slide($direction: up));
+    }
+  
+    // It works with multiple effects, too!
+    .foto3{
+      @include mui-queue(1s, 0s, fade, spin, slide($direction: up, $amount: 120%));
+    }
+  }

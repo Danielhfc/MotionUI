@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'motion-ui';
+@include motion-ui-transitions;
+@include motion-ui-animations;
+
+// Use the default slide effect
+.transicao-bacana{
+    @include mui-fade(in, $duration: 3s);
+}
+
+.teste {
+    @include mui-animation(fade, spin, slide($direction: up, $amount: 120%));
+    animation-duration: 500ms;
+    animation-delay: 1000ms;
+  }
+
+  @include mui-series {
+    .thing-one {
+    @include mui-queue(1s, 0s, fade);
+    }
+  
+    // A 2s pause will happen after this animation ends
+    .thing-two {
+    @include mui-queue(1s, 2s, slide($direction: right));
+    }
+  
+    // It works with multiple effects, too!
+    .thing-three {
+    @include mui-queue(2s, 0s, spin($direction: ccw), slide($direction: up));
+    }
+  }
